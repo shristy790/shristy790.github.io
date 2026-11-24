@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shristy Kumari — B.Tech ECE Student Portfolio showcasing skills in Control Systems, Analog & Digital Communication, Microprocessors, and IoT." />
+  <title>Shristy Kumari | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0078ff;
+      --primary-dark: #005ec9;
+      --bg-light: #f5f5f5;
+      --white: #ffffff;
+      --text-dark: #1e1e1e;
+      --text-body: #4e4e4e;
+      --text-muted: #6c757d;
+      --border: #e6e8ec;
+      --shadow-sm: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 13px 8px -10px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 76px;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: min(1140px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: all 0.35s ease;
+      background: transparent;
+    }
+
+    .navbar.scrolled {
+      background: var(--white);
+      padding: 14px 0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      color: var(--white);
+      transition: color 0.3s ease;
+    }
+
+    .navbar.scrolled .brand {
+      color: var(--primary);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-link {
+      position: relative;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--white);
+      padding-bottom: 5px;
+    }
+
+    .navbar.scrolled .nav-link {
+      color: var(--text-dark);
+    }
+
+    .nav-link::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--white);
+      transition: width 0.3s ease;
+    }
+
+    .navbar.scrolled .nav-link::before {
+      background-color: var(--primary);
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+      width: 34px;
+    }
+
+    .navbar.scrolled .nav-link:hover,
+    .navbar.scrolled .nav-link.active {
+      color: var(--primary);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: var(--white);
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .navbar.scrolled .menu-toggle {
+      border-color: var(--border);
+      color: var(--text-dark);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      background: linear-gradient(rgba(14, 24, 42, 0.68), rgba(14, 24, 42, 0.74)),
+                  url("file:///D:/Shristy%20portfolio/shristy image.jpeg") center 22% / cover no-repeat;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 5.5vw, 4.3rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      line-height: 1.15;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.25rem, 2.8vw, 2.1rem);
+      font-weight: 400;
+      color: #f0f4f8;
+      min-height: 2.6rem;
+    }
+
+    .typed-cursor {
+      display: inline-block;
+      color: var(--primary);
+      font-weight: 300;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    /* Shared Section Styling */
+    .section-pad {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 54px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.6vw, 2.8rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 600px;
+      margin: 0 auto 18px;
+    }
+
+    .line-mf {
+      width: 42px;
+      height: 5px;
+      background-color: var(--primary);
+      margin: 0 auto;
+    }
+
+    /* About & Skills Card */
+    .box-shadow-full {
+      background-color: var(--white);
+      padding: 52px 46px;
+      box-shadow: var(--shadow-sm);
+      border-radius: 4px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      margin-bottom: 30px;
+    }
+
+    .avatar-box {
+      width: 138px;
+      height: 156px;
+      border-radius: 6px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      border: 3px solid var(--white);
+    }
+
+    .avatar-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .about-info p {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: var(--text-body);
+    }
+
+    .title-s {
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 1.02rem;
+    }
+
+    .skill-mf .title-s {
+      display: block;
+      margin-bottom: 18px;
+      font-size: 1.1rem;
+    }
+
+    .skill-item {
+      margin-bottom: 18px;
+    }
+
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-body);
+      margin-bottom: 6px;
+    }
+
+    .progress {
+      height: 0.65rem;
+      background-color: #cde1f8;
+      border-radius: 0;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background-color: var(--primary);
+      width: 0;
+      transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .title-box-2 {
+      margin-bottom: 24px;
+    }
+
+    .title-left {
+      position: relative;
+      font-size: 1.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding-bottom: 12px;
+    }
+
+    .title-left::before {
+      content: "";
+      position: absolute;
+      height: 3px;
+      width: 100px;
+      background-color: var(--primary);
+      bottom: 0;
+      left: 0;
+    }
+
+    .lead-text {
+      font-size: 1.02rem;
+      font-weight: 300;
+      color: var(--text-body);
+      margin-bottom: 18px;
+      line-height: 1.8;
+    }
+
+    /* Core Domains / Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .service-box {
+      background-color: var(--white);
+      padding: 38px 28px;
+      border-radius: 14px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .service-box:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-ico {
+      margin-bottom: 20px;
+    }
+
+    .ico-circle {
+      height: 96px;
+      width: 96px;
+      font-size: 2rem;
+      border-radius: 50%;
+      line-height: 1.55;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: 0 0 0 10px var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark);
+      transition: all 0.45s ease;
+    }
+
+    .service-box:hover .ico-circle {
+      background-color: var(--primary);
+      color: var(--white);
+      box-shadow: 0 0 0 10px #cde1f8;
+    }
+
+    .s-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    .s-description {
+      font-size: 0.93rem;
+      color: var(--text-body);
+      line-height: 1.7;
+    }
+
+    /* Portfolio / Projects Section */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .work-box {
+      background-color: var(--white);
+      box-shadow: var(--shadow-md);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .work-img {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: #f8fafd;
+      border-bottom: 1px solid #eef1f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .work-img svg {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.75s ease;
+    }
+
+    .work-box:hover .work-img svg {
+      transform: scale(1.08);
+    }
+
+    .work-content {
+      padding: 24px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex: 1;
+    }
+
+    .w-title {
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+
+    .w-more {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .w-ctegory {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .w-like {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .work-box:hover .w-like {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+
+    /* Project Detail Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 25, 38, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--white);
+      max-width: 580px;
+      width: 100%;
+      border-radius: 8px;
+      padding: 36px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+      position: relative;
+      animation: modalPop 0.25s ease;
+    }
+
+    @keyframes modalPop {
+      from { opacity: 0; transform: translateY(14px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      background: #f1f3f6;
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+
+    .modal-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--primary);
+      background: #eaf3ff;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .modal-card h3 {
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
+    .modal-card p {
+      font-size: 0.96rem;
+      color: var(--text-body);
+      margin-bottom: 18px;
+      line-height: 1.75;
+    }
+
+    .modal-specs {
+      background: #f8fafd;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 20px;
+    }
+
+    .modal-specs h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      letter-spacing: 0.4px;
+    }
+
+    .modal-specs ul {
+      list-style: disc;
+      padding-left: 18px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+    }
+
+    .modal-specs li {
+      margin-bottom: 4px;
+    }
+
+    /* Contact & Footer Section */
+    .paralax-mf {
+      position: relative;
+      padding: 85px 0 40px;
+      background: linear-gradient(135deg, rgba(0, 120, 255, 0.92), rgba(0, 82, 180, 0.94));
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 0.94rem;
+      font-family: inherit;
+      color: var(--text-body);
+      background-color: var(--white);
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 120, 255, 0.15);
+    }
+
+    textarea.form-control {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .btn-submit {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 13px 34px;
+      font-size: 1.05rem;
+      font-family: inherit;
+      font-weight: 500;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--primary-dark);
+      box-shadow: 0 0 0 4px #cde1f8;
+    }
+
+    .form-status {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: #e6f4ea;
+      color: #137333;
+      border-radius: 4px;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .list-ico {
+      margin-top: 24px;
+    }
+
+    .list-ico li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 0.96rem;
+      color: var(--text-body);
+    }
+
+    .list-ico svg {
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .copy-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f0f6ff;
+      color: var(--primary);
+      border: 1px solid #cde1f8;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .copy-pill:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .socials {
+      display: flex;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .social-circle {
+      height: 44px;
+      width: 44px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark);
+      transition: all 0.3s ease;
+    }
+
+    .social-circle:hover {
+      background-color: var(--primary);
+      color: var(--white);
+      box-shadow: 0 0 0 3px #cde1f8;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--white);
+      padding-top: 38px;
+      font-size: 0.92rem;
+    }
+
+    footer p {
+      margin-bottom: 4px;
+    }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .services-grid,
+      .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 24px;
+        gap: 16px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        display: none;
+      }
+
+      .nav-menu.open {
+        display: flex;
+      }
+
+      .nav-link {
+        color: var(--text-dark);
+      }
+
+      .nav-link::before {
+        background-color: var(--primary);
+      }
+
+      .box-shadow-full {
+        padding: 32px 22px;
+      }
+
+      .profile-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .services-grid,
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body id="page-top">
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#page-top">Shristy_Kumari</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">Menu</button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a class="nav-link active" href="#home">Home</a></li>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#service">Domains</a></li>
+        <li><a class="nav-link" href="#work">Work</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">I am Shristy Kumari</h1>
+      <p class="hero-subtitle">
+        <span id="typed-text"></span><span class="typed-cursor">|</span>
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <section id="about" class="section-pad">
+      <div class="container">
+        <div class="box-shadow-full">
+          <div class="about-grid">
+            <!-- Left Column: Profile & Skills -->
+            <div>
+              <div class="profile-top">
+                <div class="avatar-box">
+                  <img src="D:\Shristy portfolio\WhatsApp Image 2026-11-25 at 00.11.26.jpeg" alt="Shristy Kumari" />
+                </div>
+                <div class="about-info">
+                  <p><span class="title-s">Name: </span>Shristy Kumari</p>
+                  <p><span class="title-s">Profile: </span>B.Tech ECE Student</p>
+                  <p><span class="title-s">Email: </span><a href="mailto:shristysingh790@gmail.com">shristysingh790@gmail.com</a></p>
+                  <p><span class="title-s">Phone: </span><a href="tel:+917061187188">+91 7061187188</a></p>
+                </div>
+              </div>
+
+              <div class="skill-mf" id="skillsContainer">
+                <span class="title-s">Skill</span>
+
+                <div class="skill-item">
+                  <div class="skill-label">
+                    <span>Control Systems</span>
+                    <span>70%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" data-width="70%"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-label">
+                    <span>Analog &amp; Digital Communication</span>
+                    <span>75%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" data-width="75%"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-label">
+                    <span>Microprocessors</span>
+                    <span>80%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" data-width="80%"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-label">
+                    <span>Internet of Things (IoT)</span>
+                    <span>85%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" data-width="85%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: About Me -->
+            <div>
+              <div class="title-box-2">
+                <h2 class="title-left">About me</h2>
+              </div>
+              <p class="lead-text">
+                <strong>Electronics &amp; Communication Engineering Student</strong> — I’m Shristy Kumari, a B.Tech ECE undergraduate passionate about embedded systems, signal transmission, and smart hardware automation. I enjoy bridging theoretical circuit design with practical sensor-driven devices.
+              </p>
+              <p class="lead-text">
+                <strong>Hardware &amp; IoT Prototyping</strong> — Through hands-on academic projects, I have designed and built real-world solutions including a Solar-Powered Air and Water Quality Monitoring System, Motion Detection Home Automation, and a Smart Irrigation System.
+              </p>
+              <p class="lead-text">
+                <strong>Engineering Focus</strong> — With a strong foundation in Control Systems, Analog and Digital Communication, and Microprocessors, I aim to build reliable, energy-efficient electronic systems that solve everyday environmental and automation challenges.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Domains / Services Section -->
+    <section id="service" class="section-pad" style="padding-top: 20px;">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Core Domains</h2>
+          <p class="section-subtitle">
+            Applying electronics, communication principles, and embedded microcontrollers to build connected systems.
+          </p>
+          <div class="line-mf"></div>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-box">
+            <div class="service-ico">
+              <span class="ico-circle">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                  <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                </svg>
+              </span>
+            </div>
+            <h3 class="s-title">IoT &amp; Smart Systems</h3>
+            <p class="s-description">
+              Designing sensor networks, cloud telemetry dashboards, and automated wireless devices for environmental monitoring and smart living.
+            </p>
+          </div>
+
+          <div class="service-box">
+            <div class="service-ico">
+              <span class="ico-circle">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                  <rect x="9" y="9" width="6" height="6"></rect>
+                  <line x1="9" y1="1" x2="9" y2="4"></line>
+                  <line x1="15" y1="1" x2="15" y2="4"></line>
+                  <line x1="9" y1="20" x2="9" y2="23"></line>
+                  <line x1="15" y1="20" x2="15" y2="23"></line>
+                  <line x1="20" y1="9" x2="23" y2="9"></line>
+                  <line x1="20" y1="14" x2="23" y2="14"></line>
+                  <line x1="1" y1="9" x2="4" y2="9"></line>
+                  <line x1="1" y1="14" x2="4" y2="14"></line>
+                </svg>
+              </span>
+            </div>
+            <h3 class="s-title">Microprocessors</h3>
+            <p class="s-description">
+              Interfacing peripherals, timers, interrupts, and embedded C/assembly routines for real-time hardware control and data acquisition.
+            </p>
+          </div>
+
+          <div class="service-box">
+            <div class="service-ico">
+              <span class="ico-circle">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </span>
+            </div>
+            <h3 class="s-title">Communication &amp; Control</h3>
+            <p class="s-description">
+              Analyzing feedback control loops, modulation schemes, and signal conditioning circuits for accurate, noise-resilient transmission.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio / Projects Section -->
+    <section id="work" class="section-pad" style="padding-top: 20px;">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Portfolio</h2>
+          <p class="section-subtitle">
+            Explore my hardware and IoT projects in environmental sensing and intelligent automation.
+          </p>
+          <div class="line-mf"></div>
+        </div>
+
+        <div class="work-grid">
+          <!-- Project 1 -->
+          <article class="work-box" data-project="0">
+            <div class="work-img">
+              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="220" fill="#f3f8ff" />
+                <circle cx="320" cy="54" r="24" fill="#ffe49e" stroke="#f59e0b" stroke-width="2" />
+                <g stroke="#f59e0b" stroke-width="2" stroke-linecap="round">
+                  <line x1="320" y1="18" x2="320" y2="24" />
+                  <line x1="320" y1="84" x2="320" y2="90" />
+                  <line x1="284" y1="54" x2="290" y2="54" />
+                  <line x1="350" y1="54" x2="356" y2="54" />
+                </g>
+                <polygon points="75,65 155,65 140,105 60,105" fill="#0078ff" opacity="0.16" stroke="#0078ff" stroke-width="2" />
+                <line x1="108" y1="65" x2="100" y2="105" stroke="#0078ff" stroke-width="1.5" />
+                <line x1="68" y1="85" x2="148" y2="85" stroke="#0078ff" stroke-width="1.5" />
+                <path d="M40 165 Q 100 148, 160 165 T 280 165 T 370 165" fill="none" stroke="#0078ff" stroke-width="2.5" />
+                <path d="M40 180 Q 100 163, 160 180 T 280 180 T 370 180" fill="none" stroke="#60a5fa" stroke-width="2" />
+                <rect x="190" y="75" width="76" height="52" rx="6" fill="#ffffff" stroke="#0078ff" stroke-width="2" />
+                <circle cx="212" cy="101" r="8" fill="#0078ff" opacity="0.2" />
+                <line x1="228" y1="94" x2="254" y2="94" stroke="#0078ff" stroke-width="2" />
+                <line x1="228" y1="107" x2="248" y2="107" stroke="#93c5fd" stroke-width="2" />
+              </svg>
+            </div>
+            <div class="work-content">
+              <div>
+                <h3 class="w-title">Solar Powered Air and Water Quality Monitoring System</h3>
+                <div class="w-more"><span class="w-ctegory">IoT &amp; Renewable Sensing</span> / ECE Project</div>
+              </div>
+              <span class="w-like" aria-label="View project details">+</span>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="work-box" data-project="1">
+            <div class="work-img">
+              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="220" fill="#f3f8ff" />
+                <polygon points="120,105 200,52 280,105" fill="#0078ff" opacity="0.14" stroke="#0078ff" stroke-width="2" stroke-linejoin="round" />
+                <rect x="138" y="105" width="124" height="75" fill="#ffffff" stroke="#0078ff" stroke-width="2" />
+                <circle cx="200" cy="136" r="14" fill="#e0efff" stroke="#0078ff" stroke-width="2" />
+                <circle cx="200" cy="136" r="5" fill="#0078ff" />
+                <path d="M172 136 A 28 28 0 0 1 228 136" fill="none" stroke="#0078ff" stroke-width="1.8" stroke-dasharray="4 3" />
+                <path d="M160 136 A 40 40 0 0 1 240 136" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4 3" />
+              </svg>
+            </div>
+            <div class="work-content">
+              <div>
+                <h3 class="w-title">Motion Detection Home Automation</h3>
+                <div class="w-more"><span class="w-ctegory">Embedded Control</span> / ECE Project</div>
+              </div>
+              <span class="w-like" aria-label="View project details">+</span>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="work-box" data-project="2">
+            <div class="work-img">
+              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="220" fill="#f3f8ff" />
+                <path d="M200 48 C200 48 176 80 176 96 A24 24 0 0 0 224 96 C224 80 200 48 200 48 Z" fill="#0078ff" opacity="0.18" stroke="#0078ff" stroke-width="2" />
+                <line x1="200" y1="175" x2="200" y2="132" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M200 152 C182 152 174 138 186 132 C194 128 200 140 200 152 Z" fill="#22c55e" opacity="0.3" stroke="#16a34a" stroke-width="1.8" />
+                <path d="M200 144 C218 144 226 130 214 124 C206 120 200 132 200 144 Z" fill="#22c55e" opacity="0.3" stroke="#16a34a" stroke-width="1.8" />
+                <line x1="90" y1="175" x2="310" y2="175" stroke="#0078ff" stroke-width="2" stroke-linecap="round" />
+                <rect x="255" y="148" width="12" height="36" rx="2" fill="#ffffff" stroke="#0078ff" stroke-width="1.8" />
+                <rect x="275" y="148" width="12" height="36" rx="2" fill="#ffffff" stroke="#0078ff" stroke-width="1.8" />
+              </svg>
+            </div>
+            <div class="work-content">
+              <div>
+                <h3 class="w-title">Smart Irrigation System</h3>
+                <div class="w-more"><span class="w-ctegory">IoT &amp; Sensor Automation</span> / ECE Project</div>
+              </div>
+              <span class="w-like" aria-label="View project details">+</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <section id="contact" class="paralax-mf">
+      <div class="container">
+        <div class="box-shadow-full">
+          <div class="contact-grid">
+            <!-- Left: Send Message Form -->
+            <div>
+              <div class="title-box-2">
+                <h2 class="title-left">Send Message</h2>
+              </div>
+              <form id="contactForm">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="senderName" placeholder="Your Name" required />
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" id="senderEmail" placeholder="Your Email" required />
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="msgSubject" placeholder="Subject" required />
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" id="msgBody" placeholder="Message" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Message</button>
+                <div class="form-status" id="formStatus">
+                  Your message has been prepared! You can also reach me directly at shristysingh790@gmail.com or +91 7061187188.
+                </div>
+              </form>
+            </div>
+
+            <!-- Right: Get in Touch -->
+            <div>
+              <div class="title-box-2">
+                <h2 class="title-left">Get in Touch</h2>
+              </div>
+              <p class="lead-text">
+                Thank you for visiting my portfolio! Whether you’re looking to discuss electronics hardware, IoT prototypes, academic collaborations, or engineering opportunities, I’d love to connect.
+              </p>
+
+              <ul class="list-ico">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                  <span>B.Tech Electronics &amp; Communication Engineering (ECE)</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                  <a href="tel:+917061187188">+91 7061187188</a>
+                  <button type="button" class="copy-pill" data-copy="7061187188">Copy</button>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <a href="mailto:shristysingh790@gmail.com">shristysingh790@gmail.com</a>
+                  <button type="button" class="copy-pill" data-copy="shristysingh790@gmail.com">Copy</button>
+                </li>
+              </ul>
+
+              <div class="socials">
+                <a class="social-circle" href="mailto:shristysingh790@gmail.com" aria-label="Email Shristy">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+                <a class="social-circle" href="tel:+917061187188" aria-label="Call Shristy">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </a>
+                <a class="social-circle" href="https://shristy790.github.io" target="_blank" rel="noopener noreferrer" aria-label="GitHub Pages Portfolio">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer>
+          <p>&copy; Copyright <strong>Shristy Kumari</strong>. All Rights Reserved</p>
+          <p>B.Tech Electronics &amp; Communication Engineering</p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- Project Details Modal -->
+  <div class="modal-backdrop" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModal" aria-label="Close modal">&times;</button>
+      <span class="modal-tag" id="modalCategory">IoT Project</span>
+      <h3 id="modalTitle">Project Title</h3>
+      <p id="modalDesc">Project description goes here.</p>
+      <div class="modal-specs">
+        <h4>Key Highlights &amp; Components</h4>
+        <ul id="modalList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <a href="#page-top" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </a>
+
+  <script>
+    // Typing Effect
+    const roles = [
+      "B.Tech ECE Student",
+      "IoT & Embedded Enthusiast",
+      "Microprocessor & Control Learner"
+    ];
+    let roleIdx = 0;
+    let charIdx = 0;
+    let deleting = false;
+    const typedEl = document.getElementById("typed-text");
+
+    function typeLoop() {
+      const current = roles[roleIdx];
+      if (!deleting) {
+        typedEl.textContent = current.slice(0, ++charIdx);
+        if (charIdx === current.length) {
+          deleting = true;
+          setTimeout(typeLoop, 1800);
+          return;
+        }
+        setTimeout(typeLoop, 85);
+      } else {
+        typedEl.textContent = current.slice(0, --charIdx);
+        if (charIdx === 0) {
+          deleting = false;
+          roleIdx = (roleIdx + 1) % roles.length;
+          setTimeout(typeLoop, 350);
+          return;
+        }
+        setTimeout(typeLoop, 45);
+      }
+    }
+    typeLoop();
+
+    // Navbar Scroll & Active Section Highlight
+    const navbar = document.getElementById("navbar");
+    const backToTop = document.getElementById("backToTop");
+    const sections = document.querySelectorAll("header[id], section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    function onScroll() {
+      const scrollY = window.scrollY;
+      if (scrollY > 50) {
+        navbar.classList.add("scrolled");
+        backToTop.classList.add("visible");
+      } else {
+        navbar.classList.remove("scrolled");
+        backToTop.classList.remove("visible");
+      }
+
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        const height = sec.offsetHeight;
+        const id = sec.getAttribute("id");
+        if (scrollY >= top && scrollY < top + height) {
+          navLinks.forEach(link => {
+            link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+          });
+        }
+      });
+    }
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+    menuToggle.addEventListener("click", () => navMenu.classList.toggle("open"));
+    navLinks.forEach(link => link.addEventListener("click", () => navMenu.classList.remove("open")));
+
+    // Animate Skill Progress Bars on Scroll
+    const skillObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll(".progress-bar").forEach(bar => {
+            bar.style.width = bar.dataset.width;
+          });
+          skillObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    skillObserver.observe(document.getElementById("skillsContainer"));
+
+    // Project Modal Data & Interactions
+    const projectsData = [
+      {
+        category: "IoT & Renewable Sensing",
+        title: "Solar Powered Air and Water Quality Monitoring System",
+        desc: "An autonomous, solar-powered environmental monitoring station engineered to continuously measure air pollutants and water quality parameters in real time for remote and off-grid deployment.",
+        specs: [
+          "Solar panel + rechargeable battery power management for continuous off-grid operation",
+          "Air quality sensing (gas/particulate levels) paired with water turbidity, pH, and temperature probes",
+          "Microcontroller data acquisition with wireless IoT telemetry and threshold alerts"
+        ]
+      },
+      {
+        category: "Embedded Control",
+        title: "Motion Detection Home Automation",
+        desc: "A smart indoor automation and energy-saving system that detects human presence and automatically controls lighting and household electrical appliances.",
+        specs: [
+          "PIR motion sensors interfaced with a microcontroller for accurate occupancy detection",
+          "Relay driver circuit for safe switching of AC home appliances and lights",
+          "Reduces standby power wastage while improving indoor convenience and security"
+        ]
+      },
+      {
+        category: "IoT & Sensor Automation",
+        title: "Smart Irrigation System",
+        desc: "A closed-loop precision agriculture prototype that monitors real-time soil moisture levels and automatically regulates water pumps to prevent over- or under-irrigation.",
+        specs: [
+          "Capacitive/resistive soil moisture sensors with analog-to-digital signal conditioning",
+          "Automated water pump control logic based on crop moisture thresholds",
+          "Conserves water resources while providing live field status monitoring"
+        ]
+      }
+    ];
+
+    const modal = document.getElementById("projectModal");
+    const modalCategory = document.getElementById("modalCategory");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDesc = document.getElementById("modalDesc");
+    const modalList = document.getElementById("modalList");
+
+    document.querySelectorAll(".work-box").forEach(card => {
+      card.addEventListener("click", () => {
+        const data = projectsData[Number(card.dataset.project)];
+        modalCategory.textContent = data.category;
+        modalTitle.textContent = data.title;
+        modalDesc.textContent = data.desc;
+        modalList.innerHTML = data.specs.map(item => `<li>${item}</li>`).join("");
+        modal.classList.add("open");
+      });
+    });
+
+    document.getElementById("closeModal").addEventListener("click", () => modal.classList.remove("open"));
+    modal.addEventListener("click", e => {
+      if (e.target === modal) modal.classList.remove("open");
+    });
+
+    // Copy Contact Details
+    document.querySelectorAll(".copy-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        navigator.clipboard.writeText(btn.dataset.copy).then(() => {
+          const orig = btn.textContent;
+          btn.textContent = "Copied!";
+          setTimeout(() => btn.textContent = orig, 1600);
+        });
+      });
+    });
+
+    // Contact Form Handler
+    document.getElementById("contactForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const name = document.getElementById("senderName").value.trim();
+      const subject = document.getElementById("msgSubject").value.trim();
+      const body = document.getElementById("msgBody").value.trim();
+      document.getElementById("formStatus").style.display = "block";
+      window.location.href = `mailto:shristysingh790@gmail.com?subject=${encodeURIComponent(subject + " — from " + name)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
+</body>
+</html>
